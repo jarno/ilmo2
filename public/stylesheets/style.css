@@ -5,11 +5,16 @@ body {
 
 h1 {
 	margin-top: 25px;
-	color: #666;	
+	color: #000000;	
 }
 
+h2, h3 {
+	color: #333;
+}
+	
+
 .content {
-	border: 1px solid #fca311;
+	border: 1px solid #00AAFF;
 	margin: 15px;
 	padding: 10px;
 	background: #DDDDDD;	
