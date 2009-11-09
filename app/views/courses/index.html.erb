@@ -1,0 +1,21 @@
+<div class="content">
+<h2>Courses</h2>
+<% @courses.each do |course| %>
+	<%= link_to course.name, course %><br/>
+<% end %>
+</div>
+
+<div class="content">
+<h2>Add new course</h2>
+
+<% form_for :course do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %> <br /> 
+    
+    <%= f.label :description %>:
+    <%= f.text_field :description %><br />
+    <%= f.submit "Add" %>
+   
+<% end %>
+
+</div>
