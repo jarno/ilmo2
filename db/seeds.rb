@@ -13,6 +13,8 @@ namespace :options do
 		if @count > 1000
 			@count = 1000
 		end
+	else
+		@count = 0
 	end
 	if ENV['mode'] == "delete"
 		Course.delete_all
@@ -28,4 +30,6 @@ end
 @count.times do 
 	Course.create(:name => "Course #{index}", :description => "diipaapa #{index}")
 	index = index+1	
-end			
+end	
+
+		

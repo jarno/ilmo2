@@ -1,0 +1,20 @@
+<h2>Student data</h2>
+<div class="content">  
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Studentnumber</th>
+  </tr>
+
+
+  <tr>
+    <td><%=h @user.name %></td>
+    <td><%=h @user.studentnumber %></td>
+    <td><%= link_to 'Edit', edit_user_path(@user.id) %></td>
+    <td><%= link_to 'Destroy', @user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+
+</table>
+
+<%= link_to "homepage", root_url %>
+</div>

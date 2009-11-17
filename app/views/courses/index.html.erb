@@ -1,21 +1,42 @@
-<div class="content">
-<h2>Courses</h2>
-<% @courses.each do |course| %>
-	<%= link_to course.name, course %><br/>
-<% end %>
-</div>
+<pre><%= flash[:whine]%></pre>
 
-<div class="content">
-<h2>Add new course</h2>
+<% if session[:id] %>
 
-<% form_for :course do |f| %>
-    <%= f.label :name %>:
-    <%= f.text_field :name %> <br /> 
+	<% if @user %>
+		<pre>Welcome <%= link_to @user.name, user_url(@user) %> - <%= link_to "log out", session_url, :method => "delete" %></pre>
+		
+		
+	<% end %>
+		<div class="content">
+		<h2>Courses</h2>
+		<% @courses.each do |course| %>
+			<%= link_to course.name, course %><br/>
+		<% end %>
+	</div>
+	<div class="content">
+		<h2>Add new course</h2>
+
+		<% form_for :course do |f| %>
+    		<%= f.label :name %>:
+    		<%= f.text_field :name %> <br /> 
     
-    <%= f.label :description %>:
-    <%= f.text_field :description %><br />
-    <%= f.submit "Add" %>
-   
-<% end %>
+    		<%= f.label :description %>:
+    		<%= f.text_field :description %><br />
+    		<%= f.submit "Add" %>
+		<% end %>
+	</div>
+<% else %>
 
-</div>
+	<div class="content">
+		<h2>Log in</h2>
+		<% form_for :user, :url => session_url do |f| %>
+    		<%= f.label :name %>:
+    		<%= f.text_field :name %> <br /> 
+    		<%= f.label "Password" %>:
+    		<%= f.text_field :hashed_password %><br />
+    		<%= f.submit "Login" %>   
+		<% end %>
+		<pre>or</pre>
+		<%= link_to "Register", new_user_path %>
+	</div>
+<% end %>

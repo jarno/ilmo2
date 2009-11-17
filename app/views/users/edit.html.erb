@@ -1,0 +1,30 @@
+<h2>Editing user</h2>
+<div class="content">
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.label @user.name %>
+  </p>
+  <p>
+    <%= f.label "password" %><br />
+    <%= f.password_field :hashed_password %>
+  </p>
+  <p>
+    <%= f.label "Confirm password" %><br />
+    <%= f.password_field :hashed_password_confirmation %>
+  </p>
+  <p>
+    <%= f.label :studentnumber %><br />
+    <%= f.text_field :studentnumber %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+<p><%= link_to 'Delete account', @user, :confirm => 'Are you sure?', :method => :delete %></p>
+<%= link_to "Homepage", root_url %> |
+<%= link_to 'Account information', @user %> |
+<%= link_to 'Back', users_path %>
+</div>

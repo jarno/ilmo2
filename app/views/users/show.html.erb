@@ -1,0 +1,14 @@
+<div class="content">
+<p>
+  <b>Name:</b>
+  <%=h @user.name %>
+</p>
+<p>
+  <b>Studentnumber:</b>
+  <%=h @user.studentnumber %>
+</p>
+
+<%= link_to "Homepage", root_url %> | 
+<%= link_to 'Edit Account', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+</div>

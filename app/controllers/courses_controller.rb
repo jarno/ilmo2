@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
+  
+  skip_before_filter :authorize, :only => [:index]  
+  
   def index
   	@courses = Course.find(:all)
+    @user = User.find_by_id(session[:id])
   end
   
   def show
