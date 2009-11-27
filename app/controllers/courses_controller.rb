@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   skip_before_filter :authorize, :only => [:index]  
   
   def index
-  	@courses = Course.find(:all)
+  	@courses = Course.find_all
     @user = User.find_by_id(session[:id])
   end
   

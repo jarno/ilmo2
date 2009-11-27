@@ -8,13 +8,13 @@
 		
 	<% end %>
 		<div class="content">
-		<h2>Courses</h2>
+		<h2><%=t :Listing %></h2>
 		<% @courses.each do |course| %>
 			<%= link_to course.name, course %><br/>
 		<% end %>
 	</div>
 	<div class="content">
-		<h2>Add new course</h2>
+		<h2><%=t :Newcourse%></h2>
 
 		<% form_for :course do |f| %>
     		<%= f.label :name %>:

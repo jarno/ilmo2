@@ -1,0 +1,10 @@
+<div class="content">
+<h2>Course: <%=h @instance.course.name %></h2>
+<h2>Course Description: <%=h @instance.course.description %></h2>
+<h2>Instance: <%=h @instance.name %></h2>
+<h3>Exercise groups</h3>
+<% @instance.groups.each do |group| %>
+	TIME:<%= group.time %>
+	ASSISTANT:<%= group.assistant%><br/>
+<% end %>
+</div>

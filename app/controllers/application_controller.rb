@@ -7,8 +7,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   before_filter :authorize
+  before_filter :set_locale
   
   
+  def set_locale
+    # if this is nil then I18n.default_locale will be used
+    I18n.locale = params[:locale] 
+  end  
   
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
